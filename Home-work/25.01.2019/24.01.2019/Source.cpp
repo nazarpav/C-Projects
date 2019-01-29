@@ -2,7 +2,8 @@
 #include <ctime>
 using namespace std;
 
-short index1 = 0,buf1=0,buf2=0,index=0;
+short index = 0,buf1=0,buf2=0;
+const short SIZE = 8;
 
 void fillarr (int arr[], const short SIZE)
 {
@@ -20,6 +21,8 @@ void printarr(int arr[], const short SIZE)
 	}
 	cout << endl;
 }
+
+
 void left (int arr[], const short SIZE)
 {
 	for (int i = 0; i < SIZE; i++)
@@ -38,7 +41,7 @@ void right(int arr[], const short SIZE)
 	{
 		if (arr[i] < 0)
 		{
-			index1 = i;
+			index = i;
 			buf2 = arr[i];
 			break;
 		}
@@ -49,7 +52,7 @@ int main()
 {
 	srand(unsigned(time(NULL)));
 
-	const short SIZE = 8;
+	//const short SIZE = 8;
 	int arr[SIZE];
 	//short buf1 = 0,buf2;
 	fillarr(arr,SIZE);
