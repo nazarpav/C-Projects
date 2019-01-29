@@ -1,50 +1,123 @@
-//Написать функцию frame, которая выводит на экран рамку. В качестве параметров функции должны передаваться размер рамки.   
+//3  Написать программу, реализующую игру "21".Действия по выдаче очередной карты игроку и компьютеру реализуйте в виде функции.
 #include <iostream>
 #include <ctime>
+#include <windows.h>
+#include <string>
 using namespace std;
-void probel(int a = 0)
+const int cards[13]{2,3,4,5,6,7,8,9,10,2,3,4,11};
+int player = 0, comp = 0;
+
+void randcards (int a=0)
 {
 	for (short i = 0; i < a; i++)
 	{
-		cout << " ";
+		player=rand() % +13;
+		comp=rand() % +13;
+
 	}
 }
-
-void foo(int x = 0, int y = 0)
+void randcardscomp(int a = 0)
 {
-	for (short i = 0; i < x; i++)
+	for (short i = 0; i < a; i++)
 	{
-		cout << "=";
-	}
-	cout << endl;
-	for (short i = 0; i < x; i++)
-	{
-		cout << "=";
-		probel(x-2);
-		cout << "=";
-		cout <<endl;
+		comp = rand() % +13;
 
 	}
-	for (short i = 0; i < x; i++)
+}void randcardsplayer(int a = 0)
+{
+	for (short i = 0; i < a; i++)
 	{
-		cout << "=";
+		player = rand() % 13;
+
+	}
+}
+void result 
+void foo()
+{
+	char variableplayer;
+	short variablecomp = 0;
+	cout << "your point :: " << player;
+	while (true)
+	{
+		cout << "pull Cards& y/n :: ";
+		cin >> variableplayer;
+		variablecomp = rand() % 2;
+		if (variableplayer == 'n'&& variablecomp == 1)
+		{
+
+		}
 	}
 
 }
 int main()
 {
 	srand(unsigned(time(NULL)));
-	int x = 0,y=0;
-	cout << "enter x\n:: ";
-	cin >> x;
-	cout << "enter y\n:: ";
-	cin >> y;
-	foo(x, y);
-	cout << endl;
+	cout << "hello game 21///////////////////////////////////////////\n\n";
+		cout << "generation cards";
+		Sleep(150);
+		cout << ".";
+		Sleep(150);
+		cout << ".";
+		Sleep(150);
+		cout << ".";
+		Sleep(150);
+		cout << ".";
+		Sleep(150);
+		cout << ".";
+		foo();
 
 	system("pause");
 	return 0;
 }
+
+
+//2 Написать функцию frame, которая выводит на экран рамку. В качестве параметров функции должны передаваться размер рамки.   
+//#include <iostream>
+//#include <ctime>
+//using namespace std;
+//void probel(int a = 0)
+//{
+//	for (short i = 0; i < a; i++)
+//	{
+//		cout << " ";
+//	}
+//}
+//
+//void foo(int x = 0, int y = 0)
+//{
+//	for (short i = 0; i < x; i++)
+//	{
+//		cout << "=";
+//	}
+//	cout << endl;
+//	for (short i = 0; i < x; i++)
+//	{
+//		cout << "=";
+//		probel(x-2);
+//		cout << "=";
+//		cout <<endl;
+//
+//	}
+//	for (short i = 0; i < x; i++)
+//	{
+//		cout << "=";
+//	}
+//
+//}
+//int main()
+//{
+//	srand(unsigned(time(NULL)));
+//	int x = 0,y=0;
+//	cout << "enter x\n:: ";
+//	cin >> x;
+//	cout << "enter y\n:: ";
+//	cin >> y;
+//	foo(x, y);
+//	cout << endl;
+//
+//	system("pause");
+//	return 0;
+//}
 
 
 
