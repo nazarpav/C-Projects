@@ -1,3 +1,54 @@
+//Написать функцию frame, которая выводит на экран рамку. В качестве параметров функции должны передаваться размер рамки.   
+#include <iostream>
+#include <ctime>
+using namespace std;
+void probel(int a = 0)
+{
+	for (short i = 0; i < a; i++)
+	{
+		cout << " ";
+	}
+}
+
+void foo(int x = 0, int y = 0)
+{
+	for (short i = 0; i < x; i++)
+	{
+		cout << "=";
+	}
+	cout << endl;
+	for (short i = 0; i < x; i++)
+	{
+		cout << "=";
+		probel(x-2);
+		cout << "=";
+		cout <<endl;
+
+	}
+	for (short i = 0; i < x; i++)
+	{
+		cout << "=";
+	}
+
+}
+int main()
+{
+	srand(unsigned(time(NULL)));
+	int x = 0,y=0;
+	cout << "enter x\n:: ";
+	cin >> x;
+	cout << "enter y\n:: ";
+	cin >> y;
+	foo(x, y);
+	cout << endl;
+
+	system("pause");
+	return 0;
+}
+
+
+
+
 ////1.  Написать функцию Dohod, которая вычисляет доход по вкладу.Исходными данными для функции являются : величина вклада, процентная ставка(годовых) и срок вклада(количество дней).
 //#include <iostream>
 //#include <ctime>
