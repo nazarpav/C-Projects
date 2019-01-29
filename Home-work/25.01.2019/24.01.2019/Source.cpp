@@ -2,7 +2,7 @@
 #include <ctime>
 using namespace std;
 
-short index = 0,buf1=0,buf2=0;
+short index = 0,buf1=0,buf2=0,index1=0;
 const short SIZE = 8;
 
 void fillarr (int arr[], const short SIZE)
@@ -31,19 +31,19 @@ void left (int arr[], const short SIZE)
 		{
 			index = i;
 			buf1 =arr[i];
-			break;
+			i = SIZE+1;
 		}
 	}
 }
-void right(int arr[], const short SIZE)
+void right (int arr[], const short SIZE)
 {
-	for (int i = SIZE; i > 0; i--)
+	for (int i = SIZE-1; i > 0; i--)
 	{
 		if (arr[i] < 0)
 		{
-			index = i;
+			index1 = i;
 			buf2 = arr[i];
-			break;
+			i=-1;
 		}
 	}
 }
@@ -62,7 +62,7 @@ int main()
 	//buf1 = right(arr, SIZE);
 	//buf2 = left(arr, SIZE);
 	arr[index] = buf2;
-	arr[index] = buf1;
+	arr[index1] = buf1;
 	printarr(arr, SIZE);
 	
 
