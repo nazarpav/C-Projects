@@ -3,75 +3,84 @@
 //написати функцію, яка розкидає елементи масиву довільним чином;
 //створити випадкове число з того ж діапазону і знайти позицію цього випадкового числа в масиві;
 //відсортувати елементи масиву, які знаходяться справа від знайденої позиції по спаданню, а елементи масиву, які знаходяться справа від знайденої позиції по зростанню.
-# include <iostream>
-# include <ctime>
-using namespace std;
-
-void Fill(int arr[], int s)
-{
-
-	for (int i = 0; i < s; i++)
-	{
-		arr[i] = rand() % 21;
-	}
-}
-
-void Sort(int arr[], int s)
-{
-	int randnum = rand() % 21;
-	int index = 0;
-	for (int i = 0; i < s; i++)
-	{
-		if (randnum == arr[i])
-		{
-			index = i;
-		}
-	}
-	for (int i = 0; i < s; i++)
-	{
-		for (int j = 0; j < s - 1; j++)
-		{
-			if (arr[j] < arr[j + 1])
-			{
-				int tmp = arr[j];
-				arr[j] = arr[j + 1];
-				arr[j + 1] = tmp;
-			}
-			if (arr[j] > arr[j + 1])
-			{
-				int tmp = arr[j];
-				arr[j] = arr[j + 1];
-				arr[j + 1] = tmp;
-			}
-		}
-	}
-
-	cout << "rand num ::" << randnum << endl;
-	cout << "index :: " << index << endl;
-}
-
-void Print(int arr[], int s)
-{
-	for (int i = 0; i < s; i++)
-	{
-		cout << arr[i] << " ";
-
-
-	}
-}
-int main()
-{
-	srand(time(0));
-	const int size = 20;
-	int arr[size];
-	Fill(arr, size);
-	Print(arr, size);
-	Sort(arr, size);
-	Print(arr, size);
-
-	system("pause");
-	return 0;
-}
+//# include <iostream>
+//# include <ctime>
+//using namespace std;
+//
+//void Fill(int arr[], int s)
+//{
+//
+//	for (int i = 0; i < s; i++)
+//	{
+//		arr[i] = rand() % 21;
+//	}
+//}
+//
+//void SortARR(int arr[], int size)
+//{
+//	int randnum = rand() % 21;
+//	int index = 0;
+//	for (int i = 0; i < size; i++)
+//	{
+//		if (randnum == arr[i])
+//		{
+//			index = i;
+//		}
+//	}
+//
+//
+//
+//	for (int i = index - 1; i >= 1; i--) {
+//		for (int j = 0; j < i; j++) {
+//			if (arr[j] > arr[j + 1]) {
+//			int tmp = arr[j];
+//			arr[j] = arr[j + 1];
+//			arr[j + 1] = tmp;
+//			}
+//		}
+//	}
+//
+//		
+//	for (int i = 0; i < size; i++)
+//	{
+//		for (int a = index - i - 1; a > 0; a--)
+//		{
+//			if (arr[a] > arr[a - 1])
+//			{
+//				int buffer = arr[a];
+//				arr[a] = arr[a - 1];
+//				arr[a - 1] = buffer;
+//			}
+//		}
+//	}
+//
+//
+//	cout << "rand num ::" << randnum << endl;
+//	cout << "index :: " << index << endl;
+//}
+//
+//void Print(int arr[], int s)
+//{
+//	for (int i = 0; i < s; i++)
+//	{
+//		cout << arr[i] << " ";
+//
+//
+//	}
+//}
+//int main()
+//{
+//	srand(unsigned(time(NULL)));
+//	const int size = 20;
+//	int arr[size];
+//	Fill(arr, size);
+//	Print(arr, size);
+//	SortARR(arr, size);
+//	Print(arr, size);
+//
+//	system("pause");
+//	return 0;
+//}
 
 
 
