@@ -51,7 +51,7 @@
 
 #include <iostream>
 #include<ctime>
-void fillarr(int(&arr)[][], const int &SIZE)
+void fillarr(int arr[10][10], const int &SIZE)
 {
 	for (short i = 0; i < SIZE; i++)
 	{
@@ -62,14 +62,14 @@ void fillarr(int(&arr)[][], const int &SIZE)
 	}
 }
 
-void opArr(int (&arr)[][], const int &SIZE,int x1=0,int y1=0, int x2 = 0, int y2 = 0)
+void opArr(int arr[10][10], const int &SIZE,int x1=0,int y1=0, int x2 = 0, int y2 = 0)
 {
 	int bufvar = 0;
 	bufvar = arr[x1][y1];
 	arr[x1][y1]=arr[x2][y2];
 	arr[x2][y2]=bufvar;
 	
-	int arrbuf[SIZE];
+	int arrbuf[10];
 	for (short i = 0; i < SIZE; i++)
 	{
 			arrbuf[i]=arr[i][0];
@@ -78,7 +78,7 @@ void opArr(int (&arr)[][], const int &SIZE,int x1=0,int y1=0, int x2 = 0, int y2
 	}
 }
 
-void printarr(int(&arr)[][], const int &SIZE)
+void printarr(int arr[10][10], const int &SIZE)
 {
 	for (short i = 0; i < SIZE; i++)
 	{
@@ -96,7 +96,7 @@ int main()
 	srand(unsigned(time(NULL)));
 
 	const int SIZE = 10;
-	int arr[SIZE]{};
+	int arr[SIZE][SIZE]{};
 	int x1 = 0,y1 = 0, x2 = 0, y2 = 0;
 	std::cout << "enter x1-> ";
 	std::cin >> x1;
