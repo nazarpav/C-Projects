@@ -29,6 +29,8 @@ int * arrplus(T arr[], T2 &SIZE, T3 value)
 	*(arrbuf + index) = value;
 	Print(arrbuf, SIZE+1);
 	SIZE++;
+	delete[]arr;
+	arr = arrbuf;
 	return arrbuf;
 }
 template<typename T, typename T2>
@@ -64,7 +66,7 @@ int main()
 		{
 			std::cout << "Enter value + arr ::";
 		std::cin >> value;
-		arr = arrplus(arr, SIZE, value);
+		arr=arrplus(arr, SIZE, value);
 	}
 		else if (var == 2)
 		{
