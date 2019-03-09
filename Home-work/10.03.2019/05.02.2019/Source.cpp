@@ -41,8 +41,6 @@ int * arrPLUSblock(int arr[], int &SIZE,int arrvalue[], int SIZEVALUE, int index
 	}
 	SIZE+=SIZEVALUE;
 	delete[]arr;
-	//int *arr = new int[SIZE];
-	arr = arrbuf;
 	return arrbuf;
 }
 int * arrMINUSblock(int arr[], int &SIZE, int pos1, int pos2)
@@ -59,8 +57,6 @@ int * arrMINUSblock(int arr[], int &SIZE, int pos1, int pos2)
 	}
 	SIZE-=pos2-pos1;
 	delete[]arr;
-	//int *arr = new int[SIZE];
-	arr = arrbuf;
 	return arrbuf;
 }
 
@@ -79,8 +75,6 @@ int * arrPLUSblockend(int arr[], int &SIZE, int arrvalue[], int SIZEVALUE)
 	}
 	SIZE+=SIZEVALUE;
 	delete[]arr;
-	//int *arr = new int[SIZE];
-	arr = arrbuf;
 	return arrbuf;
 }
 
@@ -100,8 +94,6 @@ int * arrplus(int arr[], int &SIZE, int value,int indexx)
 	}
 	SIZE++;
 	delete[]arr;
-	//int *arr = new int[SIZE];
-	arr = arrbuf;
 	return arrbuf;
 }
 int * arrplusend(int arr[], int &SIZE, int value)
@@ -115,8 +107,6 @@ int * arrplusend(int arr[], int &SIZE, int value)
 	*(arrbuf + index) = value;
 	SIZE++;
 	delete[]arr;
-	//int *arr = new int[SIZE];
-	arr = arrbuf;
 	return arrbuf;
 }
 int * arrplusfront(int arr[], int &SIZE, int value)
@@ -131,8 +121,6 @@ int * arrplusfront(int arr[], int &SIZE, int value)
 	}
 	SIZE++;
 	delete[]arr;
-	//int *arr = new int[SIZE];
-	arr = arrbuf;
 	return arrbuf;
 }
 
@@ -150,8 +138,6 @@ int * arrminus(int arr[], int &SIZE, int indexx)
 	}
 	SIZE--;
 	delete[]arr;
-	//int *arr = new int[SIZE];
-	arr = arrbuf;
 	return arrbuf;
 }
 void Print(int arr[], int size) {
@@ -237,7 +223,6 @@ int main()
 			int SIZEVALUE = 0;
 			std::cout << "enter quantity element:: ";
 			std::cin >> SIZEVALUE;
-			//system("cls");
 			int *arrvalue = new int[SIZEVALUE];
 			int tmpind = SIZEVALUE;
 			for (short i = 0; i < SIZEVALUE; i++)
@@ -245,7 +230,6 @@ int main()
 				std::cout << "Enter element (" << tmpind << ")" << "=> ";
 				std::cin >> *(arrvalue+i);
 				tmpind--;
-				//system("cls");
 			}
 			arr=arrPLUSblockend(arr, SIZE, arrvalue, SIZEVALUE);
 			Print(arr, SIZE);
@@ -275,7 +259,6 @@ int main()
 			int SIZEVALUE = 0,indexx=0;
 			std::cout << "enter quantity element:: ";
 			std::cin >> SIZEVALUE;
-			//system("cls");
 			int *arrvalue = new int[SIZEVALUE];
 			int tmpind = SIZEVALUE;
 			for (short i = 0; i < SIZEVALUE; i++)
@@ -283,7 +266,6 @@ int main()
 				std::cout << "Enter element (" << tmpind << ")" << "=> ";
 				std::cin >> *(arrvalue + i);
 				tmpind--;
-				//system("cls");
 			}
 			std::cout << "Enter index => ";
 			std::cin >> indexx;

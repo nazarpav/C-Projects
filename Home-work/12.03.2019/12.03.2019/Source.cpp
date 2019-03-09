@@ -53,40 +53,27 @@ int* modul(int *arr, int *SIZE)
 	delete[] arr;
 	return arrbuf;
 }
-int * delParVar(int *arr, int *SIZE)
+int * delParVar(int *arr, int &SIZE)
 {
-	int buf = 0;
-	for (int i = 0; i < *SIZE; i++)
+	int tmpind = 0;
+	for (int i = 0; i < SIZE; i++)
 	{
-		for (int j = 0; j < *SIZE; j++)
+		if (arr[i]%2==0)
 		{
-			if (*(arr + i) == *(arr + j))
-			{
-				buf++;
-			}
+			tmpind++;
 		}
 	}
-	*SIZE -= buf;
-	int *arrbuf = new int[*SIZE];
 	int index = 0;
-	bool buff;
-	for (int i = 0; i < *SIZE; i++)
+	int *arrbuf = new int[SIZE-tmpind];
+	for (int i = 0; i < SIZE; i++)
 	{
-		for (int j = 0; j < *SIZE; j++)
+		if (arr[i] % 2 != 0)
 		{
-			if (*(arr + i) == *(arr + j))
-			{
-				break;
-				buff = false;
-			}
-			buff = true;
-		}
-		if (buff==true)
-		{
-			*(arrbuf + index) = *(arr + i);
+			arrbuf[index] = arr[i];
 			index++;
 		}
 	}
+	SIZE -= tmpind;
 	delete[] arr;
 	return arrbuf;
 }
@@ -97,11 +84,17 @@ int main()
 	int *arr = new int[SIZE];
 	//std::cout << abs(-5) << "\n";
 	fillarr(arr, SIZE);
+	std::cout << "ORIGINAL=> ";
 	printarr(arr, SIZE);
+	std::cout << "\n";
 	arr = modul(arr, &SIZE);
+	std::cout << "MODUL=> ";
 	printarr(arr, SIZE);
-	arr = delParVar(arr, &SIZE);
+	std::cout << "\n";
+	arr = delParVar(arr,SIZE);
+	std::cout << "DELETEPAR=> ";
 	printarr(arr, SIZE);
+	std::cout << "\n";
 	system("pause");
 	return 0;
 }
