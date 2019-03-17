@@ -32,12 +32,6 @@ void printarr(int *arr[], int &rows, int &cols)
 	}
 	cout << endl;
 }
-
-
-
-
-
-
 int ** dopcolARR(int *arr[], int &rows, int &cols)
 {
 	cols++;
@@ -57,7 +51,6 @@ int ** dopcolARR(int *arr[], int &rows, int &cols)
 	for (int i = 0; i < rows; i++) {
 		delete[]arr[i];
 	}
-
 	delete[]arr;
 	return arrb;
 
@@ -87,11 +80,6 @@ int ** delcolARR_IND(int *arr[], int &rows, int &cols, int &rowss)
 	delete[]arr;
 	return arrb;
 }
-
-
-
-
-
 int ** dopcolARR_IND(int *arr[], int &rows, int &cols, int &colss)
 {
 	cols++;
@@ -106,8 +94,6 @@ int ** dopcolARR_IND(int *arr[], int &rows, int &cols, int &colss)
 			arrb[i][j]=arr[i][j];
 		}
 	}
-
-
 	for (int i = 0; i < rows; i++)
 	{
 		for (int j = colss-1; j < cols; j++)
@@ -124,17 +110,6 @@ int ** dopcolARR_IND(int *arr[], int &rows, int &cols, int &colss)
 	delete[]arr;
 	return arrb;
 }
-
-
-
-
-
-
-
-
-
-
-
 int ** doprowARR(int *arr[],int &rows,int &cols)
 {
 	rows++;
@@ -156,7 +131,6 @@ int ** doprowARR(int *arr[],int &rows,int &cols)
 	}
 	delete[]arr;
 	return arrb;
-	
 }
 int ** delrowARR_IND(int *arr[], int &rows, int &cols,int &rowss)
 {
@@ -226,47 +200,75 @@ int main()
 	for (int i = 0; i < rows; i++) {
 		arr[i] = new int[cols];
 	}
+	int var = 0;
 	fillarr(arr, rows, cols);
-	printarr(arr, rows, cols);
-	
-
-	/*arr=doprowARR(arr, rows, cols);
-
-	printarr(arr, rows, cols);
-
-	cin >> rowss;
-	arr = delrowARR_IND(arr, rows, cols,rowss);
-
-	printarr(arr, rows, cols);
-
-	cin >> rowss;
-	arr = doprowARR_IND(arr, rows, cols, rowss);
-
-	printarr(arr, rows, cols);*/
-
-	//arr = dopcolARR(arr, rows, cols);
-
-	//printarr(arr, rows, cols);
-	//cin >> rowss;
-	//arr = delcolARR_IND(arr, rows, cols, rowss);
-	//printarr(arr, rows, cols);
-
-	cin >> rowss;
-	arr = dopcolARR_IND(arr, rows, cols, rowss);
-
-	printarr(arr, rows, cols);
-
-
-
-
+	while (true)
+	{
+		system("cls");
+		printarr(arr, rows, cols);
+		cout << "Select operation vvv\nAdd rows - 1\ndel rows index - 2\nAdd rows index - 3\nAdd collum - 4\nDel collum index - 5\nAdd collum index - 6\nPrint arr - 7\nEXIT - 8\n";
+		cin >> var;
+		if (var == 1)
+		{
+			arr = doprowARR(arr, rows, cols);
+			printarr(arr, rows, cols);
+			system("pause");
+		}
+		else if (var == 2)
+		{
+			cout << "Enter index\n";
+			cin >> rowss;
+			arr = delrowARR_IND(arr, rows, cols, rowss);
+			printarr(arr, rows, cols);
+			system("pause");
+		}
+		else if (var == 3)
+		{
+			cout << "Enter index\n";
+			cin >> rowss;
+			arr = doprowARR_IND(arr, rows, cols, rowss);
+			printarr(arr, rows, cols);
+			system("pause");
+		}
+		else if (var == 4)
+		{
+			arr = dopcolARR(arr, rows, cols);
+			printarr(arr, rows, cols);
+			system("pause");
+		}
+		else if (var == 5)
+		{
+			cout << "Enter index\n";
+			cin >> rowss;
+			arr = delcolARR_IND(arr, rows, cols, rowss);
+			printarr(arr, rows, cols);
+			system("pause");
+		}
+		else if (var == 6)
+		{
+			cout << "Enter index\n";
+			cin >> rowss;
+			arr = dopcolARR_IND(arr, rows, cols, rowss);
+			printarr(arr, rows, cols);
+			system("pause");
+		}
+		else if (var == 7)
+		{
+			printarr(arr, rows, cols);
+			system("pause");
+		}
+		else if (var == 8)
+		{
+			break;
+		}
+		else
+		{
+			cout << "EROR\n";
+		}
+	}
 	for (int i = 0; i < rows; i++) {
 		delete[]arr[i];
 	}
-
-
 	delete[]arr;
-
-
-	system("pause");
 	return 0;
 }
