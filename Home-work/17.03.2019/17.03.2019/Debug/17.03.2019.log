@@ -1,0 +1,5 @@
+﻿  Source.cpp
+c:\users\назар\desktop\c plus plus itstep\home-work\17.03.2019\17.03.2019\source.cpp(48): warning C4838: преобразование из "int" в "char" требует сужающего преобразования
+c:\users\назар\desktop\c plus plus itstep\home-work\17.03.2019\17.03.2019\source.cpp(48): warning C4305: инициализация: усечение из "int" в "char"
+c:\users\назар\desktop\c plus plus itstep\home-work\17.03.2019\17.03.2019\source.cpp(48): warning C4309: инициализация: усечение константного значения
+  17.03.2019.vcxproj -> C:\Users\назар\Desktop\C Plus Plus ItStep\Home-work\17.03.2019\Debug\17.03.2019.exe
