@@ -63,15 +63,16 @@ int ** delcolARR_IND(int *arr[], int &rows, int &cols, int &rowss)
 	for (int i = 0; i < rows; i++) {
 		arrb[i] = new int[cols];
 	}
-	for (; iter < rowss; iter++) {
-		for (int j = 0; j < cols; j++) {
-			arrb[j][iter] = arr[j][iter];
-		}
-	}
-	iter++;
-	for (; iter < rows + 1; iter++) {
-		for (int j = 0; j < cols; j++) {
-			arrb[j][iter-1] = arr[j][iter];
+	for (int i = 0; i < rows; i++) {
+		//iter = 0;
+		for (int j = 0; j < cols+1; j++) {
+			//iter++;
+			if (j == rowss)
+			{
+				continue;
+			}
+			arrb[i][j] = arr[i][j];
+			
 		}
 	}
 	for (int i = 0; i < rows; i++) {
