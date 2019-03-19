@@ -64,14 +64,14 @@ int ** delcolARR_IND(int *arr[], int &rows, int &cols, int &rowss)
 		arrb[i] = new int[cols];
 	}
 	for (int i = 0; i < rows; i++) {
-		//iter = 0;
+		iter = 0;
 		for (int j = 0; j < cols+1; j++) {
-			//iter++;
 			if (j == rowss)
 			{
 				continue;
 			}
-			arrb[i][j] = arr[i][j];
+			arrb[i][iter] = arr[i][j];
+			iter++;
 			
 		}
 	}
@@ -85,27 +85,23 @@ int ** dopcolARR_IND(int *arr[], int &rows, int &cols, int &colss)
 {
 	cols++;
 	int **arrb = new int *[rows];
+	int iter = 0;
 	for (int i = 0; i < rows; i++) {
 		arrb[i] = new int[cols];
 	}
-	for (int i = 0; i < rows; i++)
-	{
-		for (int j = 0; j < colss; j++)
-		{
-			arrb[i][j]=arr[i][j];
+	for (int i = 0; i < rows; i++) {
+		iter = 0;
+		for (int j = 0; j < cols-1; j++) {
+			if (j == colss)
+			{
+				arrb[i][iter]=rand()%100+1;
+				iter++;
+			}
+				arrb[i][iter] = arr[i][j];
+				iter++;
 		}
 	}
-	for (int i = 0; i < rows; i++)
-	{
-		for (int j = colss-1; j < cols; j++)
-		{
-			arrb[i][j] = arr[i][j];
-		}
-	}
-	for (int j = 0; j < colss; j++) {
-		arrb[j][colss] = rand() % 100 + 1;
-	}
-	for (int i = 0; i < rows - 1; i++) {
+	for (int i = 0; i < rows; i++) {
 		delete[]arr[i];
 	}
 	delete[]arr;
