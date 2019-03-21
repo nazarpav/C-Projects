@@ -1,0 +1,6 @@
+﻿  Source.cpp
+c:\users\pavliuk.itstep\desktop\new folder\class-work\14.03.2019\14.03.2019\source.cpp(13): warning C4018: '<': signed/unsigned mismatch
+c:\users\pavliuk.itstep\desktop\new folder\class-work\14.03.2019\14.03.2019\source.cpp(18): warning C4018: '<': signed/unsigned mismatch
+c:\users\pavliuk.itstep\desktop\new folder\class-work\14.03.2019\14.03.2019\source.cpp(25): warning C4018: '<': signed/unsigned mismatch
+c:\users\pavliuk.itstep\desktop\new folder\class-work\14.03.2019\14.03.2019\source.cpp(29): warning C4018: '<': signed/unsigned mismatch
+  14.03.2019.vcxproj -> C:\Users\pavliuk.itstep\Desktop\New folder\Class-work\14.03.2019\Debug\14.03.2019.exe
