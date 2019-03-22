@@ -19,19 +19,19 @@ void statstr(char*str)
 
 			vowel++;
 		}
-		else if (str[i]>=66&& str[i]<=68|| str[i] >= 98 && str[i] <= 100|| str[i] >= 70 && str[i] <=72  || str[i] >= 102 && str[i] <= 104 || str[i] >= 74 && str[i] <= 78 || str[i] >= 106 && str[i] <= 110 || str[i] >= 80 && str[i] <= 84 || str[i] >= 112 && str[i] <= 116 || str[i] >= 86 && str[i] <= 90 || str[i] >= 118 && str[i] <= 122 && str[i] != char(33) || str[i] != char(34) || str[i] != char(40) || str[i] != char(41) || str[i] != char(44) || str[i] != char(46) || str[i] != char(58) || str[i] != char(59) || str[i] != char(96))
+		else if (str[i]>=66&& str[i]<=68|| str[i] >= 98 && str[i] <= 100|| str[i] >= 70 && str[i] <=72  || str[i] >= 102 && str[i] <= 104 || str[i] >= 74 && str[i] <= 78 || str[i] >= 106 && str[i] <= 110 || str[i] >= 80 && str[i] <= 84 || str[i] >= 112 && str[i] <= 116 || str[i] >= 86 && str[i] <= 90 || str[i] >= 118 && str[i] <= 122 && str[i] != char(65) && str[i] != char(97) && str[i] != char(69) && str[i] != char(101) && str[i] != char(73) && str[i] != char(105) && str[i] != char(79) && str[i] != char(111) && str[i] != char(85) && str[i] != char(117))
 		{
 			consonant++;
 		}
-		else if (str[i] == char(33)|| str[i] == char(34) || str[i] == char(40) || str[i] == char(41) || str[i] == char(44) || str[i] == char(46) || str[i] == char(58) || str[i] == char(59) || str[i] == char(96))
+		else if (str[i] == char(33) || str[i] == char(34) || str[i] == char(40) || str[i] == char(41) || str[i] == char(44) || str[i] == char(46) || str[i] == char(58) || str[i] == char(59) || str[i] == char(96))
 		{
 			symbol++;
 		}
 	}
-	cout << "SPACE > " << space;
-	cout << "vowel > " << vowel;
-	cout << "consonant > " << consonant;
-	cout << "symbol of Syntax > " << symbol;
+	cout << "SPACE > " << space<<endl;
+	cout << "vowel > " << vowel << endl;
+	cout << "consonant > " << consonant << endl;
+	cout << "symbol of Syntax > " << symbol << endl;
 }
 int main()
 {
