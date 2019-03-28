@@ -9,10 +9,11 @@ using namespace std;
 
 struct animal
 {
+private:
 	string title;
 	string clas;
 	string name;
-
+public:
 	void settitle(string newtitle)
 	{
 		title = newtitle;
