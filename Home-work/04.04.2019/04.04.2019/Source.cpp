@@ -14,12 +14,12 @@
 using namespace std;
 
 struct Human {
-	string firstname="0000";
-	string surname="1111";
-	unsigned short age=12;
-	unsigned short date_of_birth_day=12;
-	unsigned short date_of_birth_mouth=6;
-	unsigned short date_of_birth_year=1993;
+	string firstname;
+	string surname;
+	unsigned short age;
+	unsigned short date_of_birth_day;
+	unsigned short date_of_birth_mouth;
+	unsigned short date_of_birth_year;
 	void set_first_name(string new_first_name)
 	{
 		firstname = new_first_name;
@@ -69,25 +69,28 @@ struct Human {
 		return date_of_birth_year;
 	}
 };
-string show_info()
+void show_info(Human* p_human, unsigned short size)
 {
-	Human human;
-	return "first name>" + human.get_first_name() + "\nsecond name>" + human.get_second_name() + "\nage>" + to_string(human.get_age()) + "(" + to_string(human.get_date_of_birth_day()) + "." + to_string(human.get_date_of_birth_mount()) + "." + to_string(human.get_date_of_birth_year()) + ")\n";
+	for (unsigned short i = 0; i < size; i++)
+	{
+		cout <<"Index>>>>>>>>>>=> "<< i << endl;
+		cout << "first name>" + p_human[i].get_first_name() + "\nsecond name>" + p_human[i].get_second_name() + "\nage>" + to_string(p_human[i].get_age()) + "(" + to_string(p_human[i].get_date_of_birth_day()) + "." + to_string(p_human[i].get_date_of_birth_mount()) + "." + to_string(p_human[i].get_date_of_birth_year()) + ")\n";
+	}
 }
 Human* newHuman(Human* p_human, unsigned short &size)
 {
-	Human* new_human = new Human[size];
-	string new_firstname = "0000";
-	string new_surname = "1111";
-	unsigned short new_age = 12;
-	unsigned short new_date_of_birth_day = 12;
-	unsigned short new_date_of_birth_mouth = 6;
-	unsigned short new_date_of_birth_year = 1993;
+	Human* new_human = new Human[size+1];
+	string new_firstname;
+	string new_surname;
+	unsigned short new_age;
+	unsigned short new_date_of_birth_day;
+	unsigned short new_date_of_birth_mouth;
+	unsigned short new_date_of_birth_year;
 	for (int i = 0; i < size; i++)
 	{
 		new_human[i] = p_human[i];
 	}
-	delete[] p_human;
+	//delete[] p_human;
 	cout << "\nEnter first name: ";
 	cin >> new_firstname;
 	new_human[size].set_first_name(new_firstname);
@@ -109,7 +112,6 @@ Human* newHuman(Human* p_human, unsigned short &size)
 	cout << endl;
 	size ++;
 	return new_human;
-
 }
 Human* delHuman(Human* p_human, unsigned short &size)
 {
@@ -127,7 +129,7 @@ Human* delHuman(Human* p_human, unsigned short &size)
 	cout << endl;
 	for (int i = 0; i < size; i++)
 	{
-		if (i == tmp)
+		if (i == tmp) 
 		{
 			continue;
 		}
@@ -139,14 +141,26 @@ Human* delHuman(Human* p_human, unsigned short &size)
 	delete[] p_human;
 	size--;
 	return new_human;
-
 }
-string search_pupil(string firstname,string surname,unsigned short &size)
+void search_pupil_month(Human* p_human,unsigned short month , unsigned short &size)
 {
-	Human human;
 	for (unsigned short i = 0; i < size; i++)
 	{
-		if (firstname == human.get_first_name() && surname == human.get_second_name())
+		if (to_string(p_human[i].get_date_of_birth_mount()) == to_string(month))
+		{
+			cout << "NAME> " << p_human[i].get_first_name()<<endl;
+		}
+		else
+		{
+			cout << "Not found" << i + 1 << endl;;
+		}
+	}
+}
+string search_pupil(Human* p_human,string firstname,string surname,unsigned short &size)
+{
+	for (unsigned short i = 0; i < size; i++)
+	{
+		if (firstname == p_human[i].get_first_name() && surname == p_human[i].get_second_name())
 		{
 			return"Great!!!";
 		}
@@ -156,14 +170,43 @@ string search_pupil(string firstname,string surname,unsigned short &size)
 		}
 	}
 }
+void redact_info(Human* p_human,unsigned short size, unsigned short ind)
+{
+	string new_firstname;
+	string new_surname;
+	unsigned short new_age;
+	unsigned short new_date_of_birth_day;
+	unsigned short new_date_of_birth_mouth;
+	unsigned short new_date_of_birth_year;
+	cout << "\nEnter first name: ";
+	cin >> new_firstname;
+	p_human[ind].set_first_name(new_firstname);
+	cout << "\nEnter second name: ";
+	cin >> new_surname;
+	p_human[ind].set_second_name(new_surname);
+	cout << "\nEnter age: ";
+	cin >> new_age;
+	p_human[ind].set_age(new_age);
+	cout << "\nEnter you birth day: ";
+	cin >> new_date_of_birth_day;
+	p_human[ind].set_date_of_birth_day(new_date_of_birth_day);
+	cout << "\nEnter you birth month: ";
+	cin >> new_date_of_birth_mouth;
+	p_human[ind].set_date_of_birth_mouth(new_date_of_birth_mouth);
+	cout << "\nEnter you birth year: ";
+	cin >> new_date_of_birth_year;
+	p_human[ind].set_date_of_birth_year(new_date_of_birth_year);
+	cout << endl;
+}
 class menu
 {
 public:
-	void Menu_Private(Human* p_human, unsigned short &size,bool &var)
+	void Menu_Private(Human* p_human, unsigned short &size, bool &var)
 	{
 		unsigned short choise = 3;
+		unsigned short ind = 0;
 		char Control_Symbol{};
-		const unsigned short size_menu = 6;
+		const unsigned short size_menu = 7;
 		unsigned short month = 0;
 		string firstname;
 		string surname;
@@ -174,6 +217,7 @@ public:
 			"Add new pupil",
 			"Delete pupil",
 			"Search by surname and name",
+			"Redact info",
 			"EXIT"
 		};
 		while (Control_Symbol != 13)
@@ -207,17 +251,17 @@ public:
 				}
 				cout << menu[i] << endl;
 			}
-
 		}
 		switch (choise)
 		{
 		case 1:
 			system("cls");
-			cout<<show_info();
+			show_info(p_human,size);
 			break;
 		case 2:
 			cout << "Enter month>";
 			cin >> month;
+			search_pupil_month(p_human, month, size);
 			break;
 		case 3:
 			p_human = newHuman(p_human, size);
@@ -230,9 +274,15 @@ public:
 			cin >> firstname;
 			cout << "Enter surname> ";
 			cin >> surname;
-			cout<<search_pupil(firstname, surname, size);
+			cout << search_pupil(p_human, firstname, surname, size);
 			break;
 		case 6:
+			cout << "Enter index to redact>";
+			show_info(p_human, size);
+			cin >> ind;
+			redact_info(p_human, size,ind);
+			break;
+		case 7:
 			var = true;
 			break;
 		default:
@@ -245,11 +295,11 @@ int main()
 {
 	unsigned short size = 0;
 	menu Menu;
-	bool var=false;
+	bool var = false;
 	cout << "Enter size> ";
 	cin >> size;
 	Human * human = new Human[size];
-	while (var==false)
+	while (var == false)
 	{
 		Menu.Menu_Private(human, size, var);
 	}
