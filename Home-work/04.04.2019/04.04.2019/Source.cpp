@@ -74,7 +74,6 @@ void show_info(Human* p_human, unsigned short size)
 	for (unsigned short i = 0; i < size; i++)
 	{
 		cout <<"Index>>>>>>>>>>=> "<< i << endl;
-		cout << p_human << endl;
 		cout << "first name>" + p_human[i].get_first_name() + "\nsecond name>" + p_human[i].get_second_name() + "\nage>" + to_string(p_human[i].get_age()) + "(" + to_string(p_human[i].get_date_of_birth_day()) + "." + to_string(p_human[i].get_date_of_birth_mount()) + "." + to_string(p_human[i].get_date_of_birth_year()) + ")\n";
 	}
 }
@@ -91,7 +90,6 @@ Human* newHuman(Human* p_human, unsigned short &size)
 	{
 		new_human[i] = p_human[i];
 	}
-	cout << p_human << endl;
 	delete[] p_human;
 	cout << "\nEnter first name: ";
 	cout << new_human << endl;
@@ -122,14 +120,16 @@ Human* delHuman(Human* p_human, unsigned short &size)
 	unsigned short tmp;
 	for (unsigned short i = 0; i < size; i++)
 	{
-		cout << i << endl;
-		cout << p_human[i].get_first_name()<<endl;
-		cout << p_human[i].get_second_name();
+		cout <<"index > "<< i << endl;
+		cout <<"name > "<< p_human[i].get_first_name()<<endl;
+		cout <<"sur name > "<< p_human[i].get_second_name();
+		cout << endl;
 		cout << endl;
 	}
 	cout << "Enter index>";
 	cin >> tmp;
 	cout << endl;
+	short index = 0;
 	for (int i = 0; i < size; i++)
 	{
 		if (i == tmp) 
@@ -138,7 +138,8 @@ Human* delHuman(Human* p_human, unsigned short &size)
 		}
 		else
 		{
-			new_human[i] = p_human[i];
+			new_human[index] = p_human[i];
+			index++;
 		}
 	}
 	delete[] p_human;
@@ -259,7 +260,6 @@ public:
 		{
 		case 1:
 			system("cls");
-			cout << p_human<<endl;
 			show_info(p_human,size);
 			break;
 		case 2:
@@ -269,7 +269,6 @@ public:
 			break;
 		case 3:
 			p_human = newHuman(p_human, size);
-			cout << p_human << endl;
 			break;
 		case 4:
 			p_human = delHuman(p_human, size);
@@ -307,7 +306,6 @@ int main()
 	Human * human = new Human[size];
 	while (var == false)
 	{
-		cout << human << endl;
 		Menu.Menu_Private(human, size, var);
 	}
 	delete[] human;
