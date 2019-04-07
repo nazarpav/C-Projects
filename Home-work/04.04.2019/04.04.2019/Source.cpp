@@ -74,6 +74,7 @@ void show_info(Human* p_human, unsigned short size)
 	for (unsigned short i = 0; i < size; i++)
 	{
 		cout <<"Index>>>>>>>>>>=> "<< i << endl;
+		cout << p_human << endl;
 		cout << "first name>" + p_human[i].get_first_name() + "\nsecond name>" + p_human[i].get_second_name() + "\nage>" + to_string(p_human[i].get_age()) + "(" + to_string(p_human[i].get_date_of_birth_day()) + "." + to_string(p_human[i].get_date_of_birth_mount()) + "." + to_string(p_human[i].get_date_of_birth_year()) + ")\n";
 	}
 }
@@ -90,8 +91,10 @@ Human* newHuman(Human* p_human, unsigned short &size)
 	{
 		new_human[i] = p_human[i];
 	}
-	//delete[] p_human;
+	cout << p_human << endl;
+	delete[] p_human;
 	cout << "\nEnter first name: ";
+	cout << new_human << endl;
 	cin >> new_firstname;
 	new_human[size].set_first_name(new_firstname);
 	cout << "\nEnter second name: ";
@@ -201,7 +204,7 @@ void redact_info(Human* p_human,unsigned short size, unsigned short ind)
 class menu
 {
 public:
-	void Menu_Private(Human* p_human, unsigned short &size, bool &var)
+	void Menu_Private(Human* &p_human, unsigned short &size, bool &var)
 	{
 		unsigned short choise = 3;
 		unsigned short ind = 0;
@@ -256,6 +259,7 @@ public:
 		{
 		case 1:
 			system("cls");
+			cout << p_human<<endl;
 			show_info(p_human,size);
 			break;
 		case 2:
@@ -265,6 +269,7 @@ public:
 			break;
 		case 3:
 			p_human = newHuman(p_human, size);
+			cout << p_human << endl;
 			break;
 		case 4:
 			p_human = delHuman(p_human, size);
@@ -298,9 +303,11 @@ int main()
 	bool var = false;
 	cout << "Enter size> ";
 	cin >> size;
+	cout << "Conrtrol menu only 'w'^ 's'v !!!!";
 	Human * human = new Human[size];
 	while (var == false)
 	{
+		cout << human << endl;
 		Menu.Menu_Private(human, size, var);
 	}
 	delete[] human;
